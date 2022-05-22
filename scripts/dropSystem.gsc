@@ -6,23 +6,23 @@ init()
 }
 onPlayerConnect()
 {
-	for(;;)
+    for(;;)
     {
-		level waittill ("connected", player);
+        level waittill ("connected", player);
         player thread dropWeaponBind();
         player thread autoDropWeapon();
-	}
+    }
 }
 dropWeaponBind()
 {
-	self endon("disconnect");
- 
-	setDvarIfUninitialized( "dropweapon", "<^3Weapon Name^7>" );
-	self notifyOnPlayerCommand( "dropweapon", "dropweapon" );
- 
-	for(;;)
+    self endon("disconnect");
+
+    setDvarIfUninitialized("dropweapon", "<^3Weapon Name^7>");
+    self notifyOnPlayerCommand("dropweapon", "dropweapon");
+
+    for(;;)
     {
-		self waittill("dropweapon");
+        self waittill("dropweapon");
         dropItem = getDvar("dropweapon");
 
         if(dropItem == "")
@@ -39,7 +39,7 @@ dropWeaponBind()
             self.pers["drop_origin"] = self.origin;
             self.pers["drop_angles"] = self.angles;
         }
-	}
+    }
 }
 autoDropWeapon()
 {
