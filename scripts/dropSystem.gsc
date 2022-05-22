@@ -46,10 +46,7 @@ autoDropWeapon()
     self waittill("spawned_player");
 
     if(isDefined(self.pers["drop_weapon"]))
-    {
-        self iPrintLn("Weapon Spawned");
         self thread DropItemEx(self.pers["drop_weapon"], self.pers["drop_origin"], self.pers["drop_angles"]);
-    }
 }
 DropItemEx(weapon, origin, angles)
 {
